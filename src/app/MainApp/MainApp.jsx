@@ -1,5 +1,6 @@
 import Hero from "../components/Hero";
 import Navbar from "../components/Navbar";
+import Slider from "../components/Slider";
 
 export default function MainApp()
 {
@@ -7,6 +8,7 @@ export default function MainApp()
         <>
             <Navbar />
             <Hero />
+            <Slider />
         </>
     )
 }
