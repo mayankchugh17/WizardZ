@@ -1,25 +1,53 @@
 "use client";
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
+import { useState } from "react";
 
 function Navbar() {
+  const [open, setOpen] = useState(false);
+
   return (
-    <section className="relative w-100% h-100">
-      <nav className="flex justify-between items-center font-semibold py-4 px-7">
-        <div className="flex justify-center items-center gap-4">
-          <AutoAwesomeIcon sx={{ fontSize: {sm:"20px", md:"40px"} }} />
-          <h1 className="text-3xl md:text-4xl font-bold"> WizardZ</h1>
+    <section className="w-full">
+      <nav className="flex justify-between items-center font-semibold py-4 px-6 md:px-10">
+
+        {/* LOGO */}
+        <div className="flex items-center gap-3">
+          <AutoAwesomeIcon sx={{ fontSize: { xs: "24px", md: "36px" } }} />
+          <h1 className="text-2xl md:text-3xl font-bold">WizardZ</h1>
         </div>
-        <div className="hidden md:flex justify-center items-center gap-8 text-md">
+
+        {/* DESKTOP MENU */}
+        <div className="hidden md:flex items-center gap-8 text-base">
+          <h4 className="cursor-pointer hover:text-gray-600">About Us</h4>
+          <h4 className="cursor-pointer hover:text-gray-600">Services</h4>
+          <h4 className="cursor-pointer hover:text-gray-600">Use Cases</h4>
+          <h4 className="cursor-pointer hover:text-gray-600">Pricing</h4>
+          <h4 className="cursor-pointer hover:text-gray-600">Blog</h4>
+          <button className="py-2 px-4 rounded-xl border-2 hover:bg-black hover:text-white transition">
+            Request a quote
+          </button>
+        </div>
+
+        {/* MOBILE MENU BUTTON */}
+        <div className="md:hidden">
+          <button onClick={() => setOpen(!open)}>
+            ☰
+          </button>
+        </div>
+      </nav>
+
+      {/* MOBILE MENU */}
+      {open && (
+        <div className="md:hidden flex flex-col gap-4 px-6 pb-4 font-medium">
           <h4>About Us</h4>
           <h4>Services</h4>
           <h4>Use Cases</h4>
           <h4>Pricing</h4>
           <h4>Blog</h4>
-          <button className="py-2 px-4 text-md rounded-xl border-2">
+          <button className="py-2 px-4 rounded-xl border-2 w-fit">
             Request a quote
           </button>
         </div>
-      </nav>
+      )}
     </section>
   );
 }
