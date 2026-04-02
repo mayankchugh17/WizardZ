@@ -11,7 +11,7 @@ export default function MainApp()
             <Navbar />
             <Hero />
             <Slider />
-            H<Hero2 />
+            <Hero2 />
         </>
     )
 }

@@ -1,7 +1,14 @@
 import Image from "next/image";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 import "./Hero.css";
 
 export default function Hero() {
+  gsap.registerPlugin(ScrollTrigger);
+
+  const tl = gsap.timeline();   //Creating timeline    
+
   return (
     <section className="flex flex-col md:flex-row items-center justify-between px-6 md:px-12 py-8 min-h-screen w-full gap-10">
       {/* LEFT CONTENT */}
